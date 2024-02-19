@@ -1,0 +1,71 @@
+/**
+ * 
+ * @version             See field version manifest file
+ * @package             See field name manifest file
+ * @author				Gregorio Nuti
+ * @copyright			See field copyright manifest file
+ * @license             GNU General Public License version 2 or later
+ * 
+ */
+
+.digi_contact .row-fluid [class*="span"] {
+    display: block;
+    width: 100%;
+    min-height: 28px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    float: left;
+    margin-left: 2.127659574%;
+    *margin-left: 2.0744680846383%;
+}
+.digi_contact .row > * {
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 100%;
+  padding-right: 0.75rem);
+  padding-left: 0.75rem);
+  margin-top: 0;
+}
+.digi_contact .row-fluid .span6 {
+    width: 48.936170208%;
+    *width: 48.882978718638%;
+}
+.digi_contact .row .col-md-6 {
+	flex: 0 0 auto;
+	width: 50%;
+}
+.digi_contact .row-fluid > [class*="span"]:first-child {
+	margin-left: 0;
+}
+.digi_contact select,
+.digi_contact textarea,
+.digi_contact input.form-control,
+.digi_contact #dynamic_captcha {
+    margin-bottom: 9px;
+}
+.digi_contact input[type="checkbox"] {
+	-webkit-appearance: checkbox;
+	-moz-appearance: checkbox;
+	appearance: checkbox;
+}
+.digi_contact .input-block-level {
+    display: block;
+    width: 100%;
+    min-height: 28px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+@media screen and (max-width: 768px) {
+	.digi_contact .row-fluid .span6 {
+		width: 100%;
+		*width: 100%;
+		margin-left: 0;
+		margin-right: 0;
+	}
+	.digi_contact .row .col-md-6 {
+		flex: 0 0 auto;
+		width: 100%;
+	}
+}

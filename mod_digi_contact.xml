@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="3.9.0" client="site" method="upgrade">
+	<identifier>mod://site/digi_contact</identifier>
+	<name>MOD_DIGI_CONTACT</name>
+	<author>Digigreg</author>
+	<creationDate>Sep 2023</creationDate>
+	<copyright>Copyright Digigreg 2014-2023</copyright>
+	<authorEmail>info@digigreg.com</authorEmail>
+	<authorUrl>https://www.digigreg.com</authorUrl>
+	<version>1.7.1</version>
+    <license>GNU General Public License version 2 or later</license>
+    <description>MOD_DIGI_CONTACT_XML_DESCRIPTION</description>
+    <scriptfile>script.php</scriptfile>
+    <files>
+            <filename module="mod_digi_contact">mod_digi_contact.php</filename>
+            <filename>mod_digi_contact.xml</filename>
+            <folder>administrator</folder>
+            <folder>include</folder>
+            <folder>assets</folder>
+            <folder>settings</folder>
+            <folder>tmpl</folder>
+    </files>
+    <languages folder="language">
+			<language tag="en-GB">en-GB/en-GB.mod_digi_contact.ini</language>
+			<language tag="en-GB">en-GB/en-GB.mod_digi_contact.sys.ini</language>
+			<language tag="it-IT">it-IT/it-IT.mod_digi_contact.ini</language>
+			<language tag="it-IT">it-IT/it-IT.mod_digi_contact.sys.ini</language>
+    </languages>
+        <config>
+                <fields name="params">
+                        <fieldset name="basic" addfieldpath="/modules/mod_digi_contact/administrator/elements">
+                        		<field name="xml_hidden" type="xml" />
+                        		
+								<field name="share-me_hidden" type="shareme" />
+                
+								<field name="advertising_hidden" type="digicontactadv" />
+				
+								<field name="asset_hidden" type="asset" />
+                        </fieldset>
+                        
+                        <fieldset name="email_parameters" label="MOD_DIGI_CONTACT_FIELDSET_BASIC_OPTIONS" addfieldpath="/modules/mod_digi_contact/administrator/elements">
+                                <field type="spacer" name="email" class="title" label="MOD_DIGI_CONTACT_SEPARATOR_EMAIL" />
+                                
+                                <field name="email_recipient" type="email" default="" label="MOD_DIGI_CONTACT_ADMIN_EMAIL" description="MOD_DIGI_CONTACT_ADMIN_EMAIL_DESC" /> 
+                                
+                                <field name="email_recipient_bcc" type="email" default="" label="MOD_DIGI_CONTACT_BCC_EMAIL" description="MOD_DIGI_CONTACT_BCC_EMAIL_DESC" />         
+                                
+                                <field name="from_name" type="text" default="Your website name" label="MOD_DIGI_CONTACT_FROM_NAME" description="MOD_DIGI_CONTACT_FROM_NAME_DESC" />
+                                
+                                <field name="from_email" type="email" default="" label="MOD_DIGI_CONTACT_FROM_EMAIL" description="MOD_DIGI_CONTACT_FROM_EMAIL_DESC" />
+                                
+                                <field type="spacer" name="url-hr" hr="true" />
+								
+                				<field type="spacer" name="url" class="title" label="MOD_DIGI_CONTACT_SEPARATOR_URL" />
+                                
+                                <field name="fixed_url" type="radio" layout="joomla.form.field.radio.switcher" default="0" label="MOD_DIGI_CONTACT_FIXED_URL" description="MOD_DIGI_CONTACT_FIXED_URL_DESC">
+                                        <option value="0">MOD_DIGI_CONTACT_NO</option>
+                                        <option value="1">MOD_DIGI_CONTACT_YES</option>        
+                                </field>        
+                                
+                                <field name="fixed_url_address" type="text" showon="fixed_url:1" default="" label="MOD_DIGI_CONTACT_FIXED_URL_ADDRESS" description="MOD_DIGI_CONTACT_FIXED_URL_ADDRESS_DESC"/>
+                                
+                                <field name="add_anchor_to_url" type="radio" layout="joomla.form.field.radio.switcher" default="0" label="MOD_DIGI_CONTACT_ADD_ANCHOR_TO_URL" description="MOD_DIGI_CONTACT_ADD_ANCHOR_TO_URL_DESC">
+                                        <option value="0">MOD_DIGI_CONTACT_NO</option>
+                                        <option value="1">MOD_DIGI_CONTACT_YES</option>        
+                                </field>
+                        </fieldset>
+                        
+                        <fieldset name="layout" label="MOD_DIGI_CONTACT_FIELDSET_DISPLAY" addfieldpath="/modules/mod_digi_contact/administrator/elements">
+                            	<field type="spacer" name="repeat_email" class="title" label="MOD_DIGI_CONTACT_SEPARATOR_REPEAT_EMAIL" />
+                                
+                                <field name="repeat_email_switch" type="radio" layout="joomla.form.field.radio.switcher" default="0" label="MOD_DIGI_CONTACT_REPEAT_EMAIL_SWITCH_LABEL" description="MOD_DIGI_CONTACT_REPEAT_EMAIL_SWITCH_DESC">
+                                        <option value="0">MOD_DIGI_CONTACT_NO</option>
+                                        <option value="1">MOD_DIGI_CONTACT_YES</option>        
+                                </field>
+                                
+                                <field name="repeat_email_label" type="text" default="Repeat email" showon="repeat_email_switch:1" label="MOD_DIGI_CONTACT_REPEAT_EMAIL_LABEL" description="MOD_DIGI_CONTACT_REPEAT_EMAIL_LABEL_DESC" />
+                                
+                                <field type="spacer" name="name-hr" hr="true" />
+                                
+                                <field type="spacer" name="name" class="title" label="MOD_DIGI_CONTACT_SEPARATOR_NAME" />
+                                
+                                <field name="name_switch" type="radio" layout="joomla.form.field.radio.switcher" default="1" label="MOD_DIGI_CONTACT_NAME_SWITCH_LABEL" description="MOD_DIGI_CONTACT_NAME_SWITCH_DESC">
+                                        <option value="0">MOD_DIGI_CONTACT_NO</option>
+                                        <option value="1">MOD_DIGI_CONTACT_YES</option>        
+                                </field>
+                                
+                                <field name="name_label" type="text" default="Name" showon="name_switch:1" label="MOD_DIGI_CONTACT_NAME_LABEL" description="MOD_DIGI_CONTACT_NAME_LABEL_DESC" />
+                                
+                                <field name="name_text" type="text" showon="name_switch:0" default="User" label="MOD_DIGI_CONTACT_NAME_TEXT_LABEL" description="MOD_DIGI_CONTACT_NAME_TEXT_DESC"/>
+                                
+                               
+                                <field type="spacer" name="subject-hr" hr="true" />
+								
+                				<field type="spacer" name="subject" class="title" label="MOD_DIGI_CONTACT_SEPARATOR_SUBJECT" />
+                                
+                                <field name="subject_switch" type="radio" layout="joomla.form.field.radio.switcher" default="1" label="MOD_DIGI_CONTACT_SUBJECT_SWITCH_LABEL" description="MOD_DIGI_CONTACT_SUBJECT_SWITCH_DESC">
+                                        <option value="0">MOD_DIGI_CONTACT_NO</option>
+                                        <option value="1">MOD_DIGI_CONTACT_YES</option>        
+                                </field>
+                                
+                                <field name="subject_label" type="text" default="Subject" showon="subject_switch:1" label="MOD_DIGI_CONTACT_SUBJECT_LABEL" description="MOD_DIGI_CONTACT_SUBJECT_LABEL_DESC" />
+                                
+                                <field name="subject_text" type="text" showon="subject_switch:0" default="" label="MOD_DIGI_CONTACT_SUBJECT_TEXT_LABEL" description="MOD_DIGI_CONTACT_SUBJECT_TEXT_DESC"/>
+                                
+                                <field type="spacer" name="anti-spam-hr" hr="true" />
+								
+                				<field type="spacer" name="anti-spam" class="title" label="MOD_DIGI_CONTACT_SEPARATOR_ANTI_SPAM" />
+                                
+                                <field name="enable_anti_spam" type="radio" layout="joomla.form.field.radio.switcher" default="1" label="MOD_DIGI_CONTACT_ENABLE_ANTI_SPAM" description="MOD_DIGI_CONTACT_ENABLE_ANTI_SPAM_DESC">
+                                        <option value="0">MOD_DIGI_CONTACT_NO</option>
+                                        <option value="1">MOD_DIGI_CONTACT_YES</option>
+                                </field>
+                                
+                                <field name="anti_spam_q" type="text" showon="enable_anti_spam:1" default="Please write here the result of 1 + 1" label="MOD_DIGI_CONTACT_ANTI_SPAM_QUESTION" description="MOD_DIGI_CONTACT_ANTI_SPAM_QUESTION_DESC" />
+                                
+                                <field name="anti_spam_a" type="text" showon="enable_anti_spam:1" default="2" label="MOD_DIGI_CONTACT_ANTI_SPAM_ANSWER" description="MOD_DIGI_CONTACT_ANTI_SPAM_ANSWER_DESC" />
+                                
+                                <field type="spacer" name="captcha-hr" hr="true" />
+								
+                				<field type="spacer" name="captcha" class="title" label="MOD_DIGI_CONTACT_SEPARATOR_CAPTCHA" />
+                                
+                                <field name="enable_captcha" type="radio" layout="joomla.form.field.radio.switcher" default="0" label="MOD_DIGI_CONTACT_ENABLE_CAPTCHA" description="MOD_DIGI_CONTACT_ENABLE_CAPTCHA_DESC">
+                                        <option value="0">MOD_DIGI_CONTACT_NO</option>
+                                        <option value="1">MOD_DIGI_CONTACT_YES</option>
+                                </field>
+                                
+                                <field type="spacer" name="message-hr" hr="true" />
+								
+                				<field type="spacer" name="message" class="title" label="MOD_DIGI_CONTACT_SEPARATOR_MESSAGE" />
+                                
+                                <field name="message_switch" type="radio" layout="joomla.form.field.radio.switcher" default="1" label="MOD_DIGI_CONTACT_MESSAGE_SWITCH" description="MOD_DIGI_CONTACT_MESSAGE_SWITCH_DESC">
+                                        <option value="0">MOD_DIGI_CONTACT_NO</option>
+                                        <option value="1">MOD_DIGI_CONTACT_YES</option>
+                                </field>
+                                
+                                <field name="message_min_length" type="number" default="" min="0" label="MOD_DIGI_CONTACT_MESSAGE_MIN_LENGTH_LABEL" description="MOD_DIGI_CONTACT_MESSAGE_MIN_LENGTH_DESC" filter="integer" /> 
+								
+                                <field type="spacer" name="privacy-hr" hr="true" />
+								
+                				<field type="spacer" name="privacy" class="title" label="MOD_DIGI_CONTACT_SEPARATOR_PRIVACY" />
+                				
+                				<field name="enable_privacy" type="radio" layout="joomla.form.field.radio.switcher" default="1" label="MOD_DIGI_CONTACT_ENABLE_PRIVACY" description="MOD_DIGI_CONTACT_ENABLE_PRIVACY_DESC">
+                                        <option value="0">MOD_DIGI_CONTACT_NO</option>
+                                        <option value="1">MOD_DIGI_CONTACT_YES</option>
+                                </field>
+                                
+                                <field name="privacy_label" type="text" default="I agree with Terms and Conditions" showon="enable_privacy:1" label="MOD_DIGI_CONTACT_PRIVACY_LABEL" description="MOD_DIGI_CONTACT_PRIVACY_LABEL_DESC" />
+                                
+                                <field name="privacy_link" type="text" showon="enable_privacy:1" label="MOD_DIGI_CONTACT_PRIVACY_LINK" description="MOD_DIGI_CONTACT_PRIVACY_LINK_DESC" />
+                                
+                                <field type="spacer" name="labels-hr" hr="true" />
+								
+                				<field type="spacer" name="labels" class="title" label="MOD_DIGI_CONTACT_SEPARATOR_LABELS" />
+                				
+                                <field name="email_label" type="text" default="Email" label="MOD_DIGI_CONTACT_EMAIL_LABEL" description="MOD_DIGI_CONTACT_EMAIL_LABEL_DESC" />
+                                
+                                <field name="message_label" type="text" default="Message" label="MOD_DIGI_CONTACT_MESSAGE_LABEL" description="MOD_DIGI_CONTACT_MESSAGE_LABEL_DESC" />
+                                
+                                <field name="button_text" type="text" default="Send Message" label="MOD_DIGI_CONTACT_BUTTON_TEXT" description="MOD_DIGI_CONTACT_BUTTON_TEXT_DESC" />
+                                
+                                <field name="mandatory_mark" type="text" default="" label="MOD_DIGI_CONTACT_MANDATORY_MARK_LABEL" description="MOD_DIGI_CONTACT_MANDATORY_MARK_DESC" />
+                                
+                                <field type="spacer" name="arrangement-hr" hr="true" />
+								
+                				<field type="spacer" name="arrangement" class="title" label="MOD_DIGI_CONTACT_SEPARATOR_ARRANGEMENT" />
+                                
+                                <field name="name_position" type="radio" layout="joomla.form.field.radio.switcher" default="0" label="MOD_DIGI_CONTACT_NAME_POSITION_LABEL" description="MOD_DIGI_CONTACT_NAME_POSITION_DESC">
+                                        <option value="0">MOD_DIGI_CONTACT_POSITION_LEFT</option>
+                                        <option value="1">MOD_DIGI_CONTACT_POSITION_RIGHT</option>        
+                                </field>
+                                
+                                <field name="email_position" type="radio" layout="joomla.form.field.radio.switcher" default="0" label="MOD_DIGI_CONTACT_EMAIL_POSITION_LABEL" description="MOD_DIGI_CONTACT_EMAIL_POSITION_DESC">
+                                        <option value="0">MOD_DIGI_CONTACT_POSITION_LEFT</option>
+                                        <option value="1">MOD_DIGI_CONTACT_POSITION_RIGHT</option>        
+                                </field>
+                                
+                                <field name="repeat_email_position" type="radio" layout="joomla.form.field.radio.switcher" default="0" showon="repeat_email_switch:1" label="MOD_DIGI_CONTACT_REPEAT_EMAIL_POSITION_LABEL" description="MOD_DIGI_CONTACT_REPEAT_EMAIL_POSITION_DESC">
+                                        <option value="0">MOD_DIGI_CONTACT_POSITION_LEFT</option>
+                                        <option value="1">MOD_DIGI_CONTACT_POSITION_RIGHT</option>        
+                                </field>
+                                
+                                <field name="subject_position" type="radio" layout="joomla.form.field.radio.switcher" default="0" showon="subject_switch:1" label="MOD_DIGI_CONTACT_SUBJECT_POSITION_LABEL" description="MOD_DIGI_CONTACT_SUBJECT_POSITION_DESC">
+                                        <option value="0">MOD_DIGI_CONTACT_POSITION_LEFT</option>
+                                        <option value="1">MOD_DIGI_CONTACT_POSITION_RIGHT</option>        
+                                </field>
+                                
+                                <field name="anti_spam_position" type="radio" layout="joomla.form.field.radio.switcher" default="0" showon="enable_anti_spam:1" label="MOD_DIGI_CONTACT_ANTI_SPAM_POSITION_LABEL" description="MOD_DIGI_CONTACT_ANTI_SPAM_POSITION_DESC">
+                                        <option value="0">MOD_DIGI_CONTACT_POSITION_LEFT</option>
+                                        <option value="1">MOD_DIGI_CONTACT_POSITION_RIGHT</option>        
+                                </field>
+                                
+                                <field name="captcha_position" type="radio" layout="joomla.form.field.radio.switcher" default="0" showon="enable_captcha:1" label="MOD_DIGI_CONTACT_CAPTCHA_POSITION_LABEL" description="MOD_DIGI_CONTACT_CAPTCHA_POSITION_DESC">
+                                        <option value="0">MOD_DIGI_CONTACT_POSITION_LEFT</option>
+                                        <option value="1">MOD_DIGI_CONTACT_POSITION_RIGHT</option>        
+                                </field>
+                                
+                                <field name="message_position" type="radio" layout="joomla.form.field.radio.switcher" default="1" label="MOD_DIGI_CONTACT_MESSAGE_POSITION_LABEL" description="MOD_DIGI_CONTACT_MESSAGE_POSITION_DESC">
+                                        <option value="0">MOD_DIGI_CONTACT_POSITION_LEFT</option>
+                                        <option value="1">MOD_DIGI_CONTACT_POSITION_RIGHT</option>        
+                                </field>
+                                
+                                <field name="message_height" type="size" extension="px" default="79" label="MOD_DIGI_CONTACT_MESSAGE_HEIGHT_LABEL" description="MOD_DIGI_CONTACT_MESSAGE_HEIGHT_DESC" filter="integer" /> 
+                                
+                                <field name="privacy_position" type="radio" layout="joomla.form.field.radio.switcher" default="1" showon="enable_privacy:1" label="MOD_DIGI_CONTACT_PRIVACY_POSITION_LABEL" description="MOD_DIGI_CONTACT_PRIVACY_POSITION_DESC">
+                                        <option value="0">MOD_DIGI_CONTACT_POSITION_LEFT</option>
+                                        <option value="1">MOD_DIGI_CONTACT_POSITION_RIGHT</option>        
+                                </field>
+                                
+                                <field name="send_position" type="radio" layout="joomla.form.field.radio.switcher" default="1" label="MOD_DIGI_CONTACT_SEND_POSITION_LABEL" description="MOD_DIGI_CONTACT_SEND_POSITION_DESC">
+                                        <option value="0">MOD_DIGI_CONTACT_POSITION_LEFT</option>
+                                        <option value="1">MOD_DIGI_CONTACT_POSITION_RIGHT</option>        
+                                </field>
+                                
+                                <field name="fields_width" type="radio" layout="joomla.form.field.radio.switcher" default="0" label="MOD_DIGI_CONTACT_FIELDS_WIDTH_LABEL" description="MOD_DIGI_CONTACT_FIELDS_WIDTH_DESC">
+                                        <option value="0">MOD_DIGI_CONTACT_NORMAL</option>
+                                        <option value="1">MOD_DIGI_CONTACT_HUNDRED_PERCENT</option>        
+                                </field>
+                                
+                                <field name="labels_position" type="radio" layout="joomla.form.field.radio.switcher" default="0" label="MOD_DIGI_CONTACT_LABELS_POSITION_LABEL" description="MOD_DIGI_CONTACT_LABELS_POSITION_DESC">
+                                        <option value="0">MOD_DIGI_CONTACT_INSIDE</option>
+                                        <option value="1">MOD_DIGI_CONTACT_OUTSIDE</option>        
+                                </field>
+                                
+                                <field type="spacer" name="style-hr" hr="true" />
+								
+                				<field type="spacer" name="style" class="title" label="MOD_DIGI_CONTACT_SEPARATOR_STYLE" />
+                				
+                				<field name="import_css" type="radio" layout="joomla.form.field.radio.switcher" default="0" label="MOD_DIGI_CONTACT_IMPORT_CSS" description="MOD_DIGI_CONTACT_IMPORT_CSS_DESC">
+                                        <option value="0">MOD_DIGI_CONTACT_NO</option>
+                                        <option value="1">MOD_DIGI_CONTACT_YES</option>
+                                </field>
+                                
+                                <field name="confirm-custom-background-color" type="color" default="#dff0d8" label="MOD_DIGI_CONTACT_FIELD_CONFIRM_CUSTOM_BACKGROUND_COLOR_LABEL" description="MOD_DIGI_CONTACT_FIELD_CONFIRM_CUSTOM_BACKGROUND_COLOR_DESC" filter="string" />
+                                
+                                <field name="confirm-custom-color" type="color" default="#468847" label="MOD_DIGI_CONTACT_FIELD_CONFIRM_CUSTOM_COLOR_LABEL" description="MOD_DIGI_CONTACT_FIELD_CONFIRM_CUSTOM_COLOR_DESC" filter="string" />
+                                
+                                <field name="confirm-custom-border-color" type="color" default="#d6e9c6" label="MOD_DIGI_CONTACT_FIELD_CONFIRM_CUSTOM_BORDER_COLOR_LABEL" description="MOD_DIGI_CONTACT_FIELD_CONFIRM_CUSTOM_BORDER_COLOR_DESC" filter="string" />
+                                
+                                <field name="error-custom-background-color" type="color" default="#f2dede" label="MOD_DIGI_CONTACT_FIELD_ERROR_CUSTOM_BACKGROUND_COLOR_LABEL" description="MOD_DIGI_CONTACT_FIELD_ERROR_CUSTOM_BACKGROUND_COLOR_DESC" filter="string" />
+                                
+                                <field name="error-custom-color" type="color" default="#b94a48" label="MOD_DIGI_CONTACT_FIELD_ERROR_CUSTOM_COLOR_LABEL" description="MOD_DIGI_CONTACT_FIELD_ERROR_CUSTOM_COLOR_DESC" filter="string" />
+                                
+                                <field name="error-custom-border-color" type="color" default="#eed3d7" label="MOD_DIGI_CONTACT_FIELD_ERROR_CUSTOM_BORDER_COLOR_LABEL" description="MOD_DIGI_CONTACT_FIELD_ERROR_CUSTOM_BORDER_COLOR_DESC" filter="string" />
+                                
+                                <field name="send-class" type="text" default="btn btn-default" label="MOD_DIGI_CONTACT_SEND_CLASS_LABEL" description="MOD_DIGI_CONTACT_SEND_CLASS_DESC" filter="string" />
+                                
+                                <field type="spacer" name="other-fields-hr" hr="true" />
+								
+                				<field type="spacer" name="other-fields" class="title" label="MOD_DIGI_CONTACT_SEPARATOR_OTHER_FIELDS" />
+                				
+                				<field name="other-fields-text" type="textareacsv" class="extended-textarea" rows="15" cols="5" values="Name,Tag,Position,Mandatory" label="MOD_DIGI_CONTACT_OTHER_FIELDS_TEXT_LABEL" description="MOD_DIGI_CONTACT_OTHER_FIELDS_TEXT_DESC" />                
+                        </fieldset>
+                        
+                        <fieldset name="text_parameters" label="MOD_DIGI_CONTACT_FIELDSET_TEXT_PARAMETERS" addfieldpath="/modules/mod_digi_contact/administrator/elements">
+                                <field type="spacer" name="errors" class="title" label="MOD_DIGI_CONTACT_SEPARATOR_ERRORS" />
+                                
+                                <field name="page_text" type="text" default="Thank you for contacting us." label="MOD_DIGI_CONTACT_THANKS_MESSAGE" description="MOD_DIGI_CONTACT_THANKS_MESSAGE_DESC" /> 
+                                
+                                <field name="error_text" type="text" default="Your message could not be sent. Please try again or contact us by email." label="MOD_DIGI_CONTACT_ERROR_MESSAGE" description="MOD_DIGI_CONTACT_ERROR_MESSAGE_DESC" />           
+                                
+                                <field name="no_email" type="text" default="Please write your email." label="MOD_DIGI_CONTACT_NO_EMAIL_MESSAGE" description="MOD_DIGI_CONTACT_NO_EMAIL_MESSAGE_DESC" />
+                                
+                                <field name="invalid_email" type="text" default="Please write a valid email." label="MOD_DIGI_CONTACT_INVALID_EMAIL_MESSAGE" description="MOD_DIGI_CONTACT_INVALID_EMAIL_MESSAGE_DESC" />
+                                
+                                <field name="invalid_repeat_email" type="text" default="Emails do not match." showon="repeat_email_switch:1" label="MOD_DIGI_CONTACT_INVALID_REPEAT_EMAIL_MESSAGE" description="MOD_DIGI_CONTACT_INVALID_REPEAT_EMAIL_MESSAGE_DESC" />
+                                
+                                <field name="no_name" type="text" default="Please write your name." showon="name_switch:1" label="MOD_DIGI_CONTACT_NO_NAME_MESSAGE" description="MOD_DIGI_CONTACT_NO_NAME_MESSAGE_DESC" />
+                                
+                                <field name="no_subject" type="text" default="Please write the subject." showon="subject_switch:1" label="MOD_DIGI_CONTACT_NO_SUBJECT_MESSAGE" description="MOD_DIGI_CONTACT_NO_SUBJECT_MESSAGE_DESC" />
+                                
+                                <field name="no_message" type="text" default="Please write a message." label="MOD_DIGI_CONTACT_NO_MESSAGE_MESSAGE" description="MOD_DIGI_CONTACT_NO_MESSAGE_MESSAGE_DESC" />
+                                
+                                <field name="short_message" type="text" default="The message is too short. Characters needed:" label="MOD_DIGI_CONTACT_SHORT_MESSAGE_MESSAGE" description="MOD_DIGI_CONTACT_SHORT_MESSAGE_MESSAGE_DESC" />
+                                
+                                <field name="wrong_antispam" type="text" default="Wrong anti spam answer." showon="enable_anti_spam:1" label="MOD_DIGI_CONTACT_WRONG_ANTI_SPAM_MESSAGE" description="MOD_DIGI_CONTACT_WRONG_ANTI_SPAM_MESSAGE_DESC"/>
+                                
+                                <field name="wrong_captcha" type="text" default="Wrong captcha." showon="enable_captcha:1" label="MOD_DIGI_CONTACT_WRONG_CAPTCHA_MESSAGE" description="MOD_DIGI_CONTACT_WRONG_CAPTCHA_MESSAGE_DESC"/>
+                                
+                                <field name="no_privacy" type="text" default="You must agree to our Terms and Conditions." showon="enable_privacy:1" label="MOD_DIGI_CONTACT_NO_PRIVACY_MESSAGE" description="MOD_DIGI_CONTACT_NO_PRIVACY_MESSAGE_DESC" />
+                                
+                                <field name="missing_field" type="text" default="Please fill all mandatory fields." label="MOD_DIGI_CONTACT_MISSING_FIELD_MESSAGE" description="MOD_DIGI_CONTACT_MISSING_FIELD_MESSAGE_DESC" />
+                                
+                                <field type="spacer" name="custom-message-hr" hr="true" />
+								
+                				<field type="spacer" name="custom-message" class="title" label="MOD_DIGI_CONTACT_SEPARATOR_CUSTOM_MESSAGE" />
+                                
+                                <field type="spacer" name="custom-message-tags" label="MOD_DIGI_CONTACT_CUSTOM_MESSAGE_TAGS" />
+                                
+                                <field type="spacer" name="custom-message-tag-email" label="MOD_DIGI_CONTACT_CUSTOM_MESSAGE_TAG_EMAIL" />
+                                
+                                <field type="spacer" name="custom-message-tag-name" label="MOD_DIGI_CONTACT_CUSTOM_MESSAGE_TAG_NAME" />
+                                
+                                <field type="spacer" name="custom-message-tag-subject" label="MOD_DIGI_CONTACT_CUSTOM_MESSAGE_TAG_SUBJECT" />
+                                
+                                <field type="spacer" name="custom-message-tag-message" label="MOD_DIGI_CONTACT_CUSTOM_MESSAGE_TAG_MESSAGE" />
+                                
+                                <field type="spacer" name="custom-message-tag-siteurl" label="MOD_DIGI_CONTACT_CUSTOM_MESSAGE_TAG_SITEURL" />
+                                
+                                <field type="spacer" name="custom-message-tag-pageurl" label="MOD_DIGI_CONTACT_CUSTOM_MESSAGE_TAG_PAGEURL" />
+                                
+                                <field type="spacer" name="custom-message-tag-sitename" label="MOD_DIGI_CONTACT_CUSTOM_MESSAGE_TAG_SITENAME" />
+                                
+                                <field type="spacer" name="custom-message-tag-newline" label="MOD_DIGI_CONTACT_CUSTOM_MESSAGE_TAG_NEWLINE" />
+                                
+                                <field type="spacer" name="custom-message-tag-custom" label="MOD_DIGI_CONTACT_CUSTOM_MESSAGE_TAG_CUSTOM" />
+                                
+                                <field name="custom-message-text" type="textarea" rows="10" cols="50" default="" label="MOD_DIGI_CONTACT_CUSTOM_MESSAGE" description="MOD_DIGI_CONTACT_CUSTOM_MESSAGE_DESC" filter="raw" />
+                                
+                                <field type="spacer" name="popover-hr" hr="true" />
+								
+                				<field type="spacer" name="popover" class="title" label="MOD_DIGI_CONTACT_SEPARATOR_POPOVER" />
+                                
+                                <field name="popover_switch" type="radio" layout="joomla.form.field.radio.switcher" default="0" label="MOD_DIGI_CONTACT_POPOVER_SWITCH_LABEL" description="MOD_DIGI_CONTACT_POPOVER_SWITCH_DESC">
+                                        <option value="0">JNO</option>
+                                        <option value="1">JYES</option>        
+                                </field>
+                                
+                                <field name="popover_title" type="text" showon="popover_switch:1" label="MOD_DIGI_CONTACT_POPOVER_TITLE_LABEL" description="MOD_DIGI_CONTACT_POPOVER_TITLE_DESC" />
+                                
+                                <field name="popover_content" type="textarea" rows="10" cols="50" showon="popover_switch:1" filter="raw" label="MOD_DIGI_CONTACT_POPOVER_CONTENT_LABEL" description="MOD_DIGI_CONTACT_POPOVER_CONTENT_DESC" />
+                                
+                                <field name="popover_position" type="list" default="0" showon="popover_switch:1" label="MOD_DIGI_CONTACT_POPOVER_POSITION_LABEL" description="MOD_DIGI_CONTACT_POPOVER_POSITION_DESC">
+                                        <option value="top">MOD_DIGI_CONTACT_POPOVER_POSITION_TOP</option>
+                                        <option value="bottom">MOD_DIGI_CONTACT_POPOVER_POSITION_BOTTOM</option>
+                                        <option value="left">MOD_DIGI_CONTACT_POPOVER_POSITION_LEFT</option>
+                                        <option value="right">MOD_DIGI_CONTACT_POPOVER_POSITION_RIGHT</option>
+                                </field>
+                                
+                                <field type="spacer" name="others-hr" hr="true" />
+								
+                				<field type="spacer" name="others" class="title" label="MOD_DIGI_CONTACT_SEPARATOR_OTHERS" />
+                                
+                                <field name="pre_text" type="textarea" rows="10" cols="50" default="" label="MOD_DIGI_CONTACT_INTRO_TEXT" description="MOD_DIGI_CONTACT_INTRO_TEXT_DESC" />
+                                
+                                <field name="pre_text_hr" type="radio" layout="joomla.form.field.radio.switcher" default="1" label="MOD_DIGI_CONTACT_INTRO_TEXT_HR" description="MOD_DIGI_CONTACT_INTRO_TEXT_HR_DESC">
+                                        <option value="0">JNO</option>
+                                        <option value="1">JYES</option>        
+                                </field>
+                                
+                                <field name="post_text" type="textarea" rows="10" cols="50" default="" label="MOD_DIGI_CONTACT_POST_TEXT" description="MOD_DIGI_CONTACT_POST_TEXT_DESC" />
+                                
+                                <field name="post_text_hr" type="radio" layout="joomla.form.field.radio.switcher" default="1" label="MOD_DIGI_CONTACT_POST_TEXT_HR" description="MOD_DIGI_CONTACT_POST_TEXT_HR_DESC">
+                                        <option value="0">JNO</option>
+                                        <option value="1">JYES</option>        
+                                </field>
+                        </fieldset>
+                        
+                        <fieldset name="advanced" label="MOD_DIGI_CONTACT_FIELDSET_ADVANCED" addfieldpath="/modules/mod_digi_contact/administrator/elements">
+                                <field name="moduleclass_sfx" type="text" label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL" description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
+                                
+                                <field name="cache" type="list" default="1" label="COM_MODULES_FIELD_CACHING_LABEL" description="COM_MODULES_FIELD_CACHING_DESC">
+                                        <option value="1">JGLOBAL_USE_GLOBAL</option>
+                                        <option value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+                                </field>
+                                
+                                <field name="cache_time" type="text" default="900" label="COM_MODULES_FIELD_CACHE_TIME_LABEL" description="COM_MODULES_FIELD_CACHE_TIME_DESC" />
+                                
+                                <field name="cachemode" type="hidden" default="itemid">
+                                        <option value="itemid"></option>
+                                </field>
+                        </fieldset>
+                        
+                        <fieldset name="backup" label="MOD_DIGI_CONTACT_FIELDSET_BACKUP" addfieldpath="/modules/mod_digi_contact/administrator/elements">
+                                
+                                <field name="backup_hidden" type="backup" />
+                                
+                        </fieldset>
+                </fields>
+        </config>
+        <updateservers>
+                <server type="extension" priority="2" name="Digi Contact">http://www.digigreg.com/xml/mod_digi_contact.xml</server>
+        </updateservers>
+</extension>
